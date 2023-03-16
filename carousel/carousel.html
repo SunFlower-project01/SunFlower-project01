@@ -32,7 +32,7 @@
   <!-- carousel -->
   <div class="carousel">
     <!-- carousel 내부 -->
-    <div class="carousel--hidden transition"> <!-- .carousel--hidden을 div로 한 번 더 감싸서 이미지 한 장만 나오게 가려줄 겁니다. -->
+    <div class="carousel--hidden"> <!-- .carousel--hidden을 div로 한 번 더 감싸서 이미지 한 장만 나오게 가려줄 겁니다. -->
       <!-- carousel 내부에서 가로로 정렬된 image -->
       <img class="carousel--hidden__image" src="https://images.unsplash.com/photo-1677269309681-8ac2821d250a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3ODc4NjQ3NQ&ixlib=rb-4.0.3&q=80&w=1080" alt="">  <!-- 이미지 크기를 400 300-->
       <img class="carousel--hidden__image" src="https://images.unsplash.com/photo-1676629650907-d50f2f27db20?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3ODc4NjQ4Ng&ixlib=rb-4.0.3&q=80&w=1080" alt="">
@@ -70,7 +70,7 @@
 
     })
     
-    buttonAfter.addEventListener('click', () => {
+    buttonAfter.addEventListener('click', () => { // 클릭을 한 순간
       // after를 누르면 위치가 이동한다.
       // 페이지가 4장 0, 1, 2, 3   => index가 0, 1, 2 일때 아래 if문이 실행 위치가 3까지는 도달
       if (index < document.querySelectorAll('.carousel--hidden > img').length - 1) { 
@@ -81,17 +81,15 @@
       if (index === document.querySelectorAll('.carousel--hidden > img').length - 1) {
         index = 0
         setTimeout(function () {
-          carousel.style.transition = `${0}s ease-out`
-          carousel.style.transform = `translate3d(-${400 * index}px,0,0)` // 위치 처음으로 이동
-          //0.4초동안 복사한 첫번째 이미지에서, 진짜 첫번째 위치로 이동
+            carousel.style.transition = `${0}s ease-out`
+            carousel.style.transform = `translate3d(-${400 * index}px,0,0)` // 위치 처음으로 이동
+            setTimeout(() => {
+              carousel.style.transition = `${0.4}s ease-out`
+            }, 400);   
+            //0.4초동안 복사한 첫번째 이미지에서, 진짜 첫번째 위치로 이동
           }, 400);
         }
-      if (index === 0) {
-        setTimeout(() => {
-          carousel.style.transition = `${0.4}s ease-out`
-        }, 400);      
-      }
-    })
+     
 
 
     // 1. 넘어가는 효과 
