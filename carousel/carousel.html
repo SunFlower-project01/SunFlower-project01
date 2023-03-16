@@ -18,6 +18,7 @@
 
     .carousel--hidden {
       display: flex;
+      
       transition: 0.4s ease;
     }
     
@@ -26,6 +27,7 @@
       height: 300px;
     }
 
+    
   </style>
 </head>
 <body>
@@ -34,13 +36,14 @@
     <!-- carousel 내부 -->
     <div class="carousel--hidden"> <!-- .carousel--hidden을 div로 한 번 더 감싸서 이미지 한 장만 나오게 가려줄 겁니다. -->
       <!-- carousel 내부에서 가로로 정렬된 image -->
+      <img class="carousel--hidden__image" src="https://images.unsplash.com/photo-1677594333739-b6b9a2d1dc6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3ODc4NjcwNw&ixlib=rb-4.0.3&q=80&w=1080" alt="">
       <img class="carousel--hidden__image" src="https://images.unsplash.com/photo-1677269309681-8ac2821d250a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3ODc4NjQ3NQ&ixlib=rb-4.0.3&q=80&w=1080" alt="">  <!-- 이미지 크기를 400 300-->
       <img class="carousel--hidden__image" src="https://images.unsplash.com/photo-1676629650907-d50f2f27db20?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3ODc4NjQ4Ng&ixlib=rb-4.0.3&q=80&w=1080" alt="">
       <img class="carousel--hidden__image" src="https://images.unsplash.com/photo-1677594333739-b6b9a2d1dc6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3ODc4NjcwNw&ixlib=rb-4.0.3&q=80&w=1080" alt="">
-      <img class="carousel--hidden__image" src="https://images.unsplash.com/photo-1677269309681-8ac2821d250a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3ODc4NjQ3NQ&ixlib=rb-4.0.3&q=80&w=1080" alt="">  <!-- 이미지 크기를 400 300-->
+      <img class="carousel--hidden__image" src="https://images.unsplash.com/photo-1677269309681-8ac2821d250a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3ODc4NjQ3NQ&ixlib=rb-4.0.3&q=80&w=1080" alt="">  이미지 크기를 400 300
     </div>
   </div>
-
+  
   <!-- button -->
   <div>
     <!-- button__before -->
@@ -52,43 +55,59 @@
       after
     </button>
   </div>
-
+  
   <!-- js -->
   <script>
     const buttonBefore = document.querySelector('.button__before')
     const buttonAfter = document.querySelector('.button__after')
     const carousel = document.querySelector('.carousel--hidden')
-
+    const images = document.querySelectorAll('.carousel--hidden__image')
+    
   
     let index = 0 // 이미지의 위치를 지정하는 변수
+    let total = images.length // 이미지 총 개수
 
-    buttonBefore.addEventListener('click', () => { // click이란 이벤트가 발생됐을 때 {}을 구현, ()는 몰라
-      if (index === 0) return // 만약 인덱스가 0이면 (== 첫번째 이미지면) 이전버튼을 눌러도 아무것도 안 하고 종료
-      index -= 1
-
-      carousel.style.transform = `translate3d(-${400 * index}px, 0,0)` // 로 이동시켜주겠다
-
-    })
-    
     buttonAfter.addEventListener('click', () => { // 클릭을 한 순간
       // after를 누르면 위치가 이동한다.
       // 페이지가 4장 0, 1, 2, 3   => index가 0, 1, 2 일때 아래 if문이 실행 위치가 3까지는 도달
-      if (index < document.querySelectorAll('.carousel--hidden > img').length - 1) { 
+      if (index < total - 1) { 
         index += 1
         carousel.style.transform = `translate3d(-${400 * index}px, 0,0)` 
-      }
-      // 3이면
-      if (index === document.querySelectorAll('.carousel--hidden > img').length - 1) {
+      } else if (index === total - 1) {
         index = 0
-        setTimeout(function () {
-            carousel.style.transition = `${0}s ease-out`
-            carousel.style.transform = `translate3d(-${400 * index}px,0,0)` // 위치 처음으로 이동
-            setTimeout(() => {
-              carousel.style.transition = `${0.4}s ease-out`
-            }, 400);   
-            //0.4초동안 복사한 첫번째 이미지에서, 진짜 첫번째 위치로 이동
-          }, 400);
-        }
+        carousel.style.transform = `translate3d(0, 0, 0)`
+      }
+    })
+
+    buttonBefore.addEventListener('click', () => { // click이란 이벤트가 발생됐을 때 {}을 구현, ()는 몰라
+      // 0 1 2 3 4
+      if (index > 0) {
+        index -= 1
+        carousel.style.transform = `translate3d(-${400 * index}px, 0,0)` 
+      } else if (index === 0) {
+        index = total - 2
+        carousel.style.transform = `translate3d(0, 0, 0)`
+      }
+    })
+    // 현재 상황(무한루프는 돌아간다)
+    // after 버튼, [4]에서 [0]으로 돌아간다. 
+    // before 버튼(미완성) [0]에서 버튼을 2번 눌렀을 때, [3]으로 감
+   
+    // 내일 목표
+    // before 버튼 완성하기(하나라도 원하는대로)
+
+
+    // if (index === document.querySelectorAll('.carousel--hidden > img').length - 1) {
+    //   index = 0
+    //   setTimeout(function () {
+    //       carousel.style.transition = `${0}s ease-out`
+    //       carousel.style.transform = `translate3d(-${400 * index}px,0,0)` // 위치 처음으로 이동
+    //       setTimeout(() => {
+    //         carousel.style.transition = `${0.4}s ease-out`
+    //       }, 400);   
+    //       //0.4초동안 복사한 첫번째 이미지에서, 진짜 첫번째 위치로 이동
+    //     }, 400);
+    //   }
      
 
 
