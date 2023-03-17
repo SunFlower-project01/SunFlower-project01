@@ -1,139 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .title {
+        display: flex;
+        justify-content: center;
+      }
+      .container__carousel {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-    .carousel {
-      overflow: hidden; 
-      width: 400px;
-      height: 300px;
-    }
+      .carousel {
+        overflow: hidden;
+        width: 500px;
+        height: 300px;
+        margin: 5%;
+      }
+      .carousel--hidden {
+        display: flex;
+        transition: 0.4s ease;
+      }
+      .carousel--hidden__image {
+        width: 400px;
+        height: 300px;
+      }
+    </style>
+  </head>
+  <!-- https://cdn.discordapp.com/attachments/1063314297486323712/1084481812841115648/bf22e255f87f3361.png
+  https://cdn.discordapp.com/attachments/1063314297486323712/1084447459922690128/image.png -->
 
-    .carousel--hidden {
-      display: flex;
-      
-      transition: 0.4s ease;
-    }
-    
-    .carousel--hidden__image {
-      width: 400px;
-      height: 300px;
-    }
+  <body>
+    <!-- 제목 -->
+    <div class="title"><h1>안녕하세요, 우리는 햇님반입니다!</h1></div>
 
-    
-  </style>
-</head>
-<body>
-  <!-- carousel -->
-  <div class="carousel">
-    <!-- carousel 내부 -->
-    <div class="carousel--hidden"> <!-- .carousel--hidden을 div로 한 번 더 감싸서 이미지 한 장만 나오게 가려줄 겁니다. -->
-      <!-- carousel 내부에서 가로로 정렬된 image -->
-      <img class="carousel--hidden__image" src="https://images.unsplash.com/photo-1677594333739-b6b9a2d1dc6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3ODc4NjcwNw&ixlib=rb-4.0.3&q=80&w=1080" alt="">
-      <img class="carousel--hidden__image" src="https://images.unsplash.com/photo-1677269309681-8ac2821d250a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3ODc4NjQ3NQ&ixlib=rb-4.0.3&q=80&w=1080" alt="">  <!-- 이미지 크기를 400 300-->
-      <img class="carousel--hidden__image" src="https://images.unsplash.com/photo-1676629650907-d50f2f27db20?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3ODc4NjQ4Ng&ixlib=rb-4.0.3&q=80&w=1080" alt="">
-      <img class="carousel--hidden__image" src="https://images.unsplash.com/photo-1677594333739-b6b9a2d1dc6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3ODc4NjcwNw&ixlib=rb-4.0.3&q=80&w=1080" alt="">
-      <img class="carousel--hidden__image" src="https://images.unsplash.com/photo-1677269309681-8ac2821d250a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3ODc4NjQ3NQ&ixlib=rb-4.0.3&q=80&w=1080" alt="">  이미지 크기를 400 300
+    <!-- btn + carousel + btn -->
+    <div class="container__carousel">
+      <!-- button1 -->
+      <div>
+        <button class="button__before">left</button>
+      </div>
+
+      <!-- carousel -->
+      <div class="carousel">
+        <div class="carousel--hidden">
+          <!-- .carousel--hidden을 div로 한 번 더 감싸서 이미지 한 장만 나오게 가려줄 겁니다. -->
+          <!-- 이미지 크기를 400 300--><!-- carousel 내부에서 가로로 정렬된 image -->
+          <img
+            class="carousel--hidden__image"
+            src="https://images.unsplash.com/photo-1677594333739-b6b9a2d1dc6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3ODc4NjcwNw&ixlib=rb-4.0.3&q=80&w=1080"
+            alt="" />
+          <img
+            class="carousel--hidden__image"
+            src="https://images.unsplash.com/photo-1677269309681-8ac2821d250a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3ODc4NjQ3NQ&ixlib=rb-4.0.3&q=80&w=1080"
+            alt="" />
+          <img
+            class="carousel--hidden__image"
+            src="https://images.unsplash.com/photo-1676629650907-d50f2f27db20?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3ODc4NjQ4Ng&ixlib=rb-4.0.3&q=80&w=1080"
+            alt="" />
+          <img
+            class="carousel--hidden__image"
+            src="https://images.unsplash.com/photo-1677594333739-b6b9a2d1dc6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3ODc4NjcwNw&ixlib=rb-4.0.3&q=80&w=1080"
+            alt="" />
+          <img
+            class="carousel--hidden__image"
+            src="https://images.unsplash.com/photo-1677269309681-8ac2821d250a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3ODc4NjQ3NQ&ixlib=rb-4.0.3&q=80&w=1080"
+            alt="" />
+        </div>
+      </div>
+
+      <!-- button2 -->
+      <div>
+        <button class="button__after">right</button>
+      </div>
     </div>
-  </div>
-  
-  <!-- button -->
-  <div>
-    <!-- button__before -->
-    <button class="button__before"> 
-      before
-    </button>
-    <!-- button__after -->
-    <button class="button__after">
-      after
-    </button>
-  </div>
-  
-  <!-- js -->
-  <script>
-    const buttonBefore = document.querySelector('.button__before')
-    const buttonAfter = document.querySelector('.button__after')
-    const carousel = document.querySelector('.carousel--hidden')
-    const images = document.querySelectorAll('.carousel--hidden__image')
-    
-  
-    let index = 0 // 이미지의 위치를 지정하는 변수
-    let total = images.length // 이미지 총 개수
 
-    buttonAfter.addEventListener('click', () => { // 클릭을 한 순간
-      // after를 누르면 위치가 이동한다.
-      // 페이지가 4장 0, 1, 2, 3   => index가 0, 1, 2 일때 아래 if문이 실행 위치가 3까지는 도달
-      if (index < total - 1) { 
-        index += 1
-        carousel.style.transform = `translate3d(-${400 * index}px, 0,0)` 
-      } else if (index === total - 1) {
-        index = 0
-        carousel.style.transform = `translate3d(0, 0, 0)`
-      }
-    })
+    <!-- js -->
+    <script>
+      const buttonBefore = document.querySelector(".button__before");
+      const buttonAfter = document.querySelector(".button__after");
+      const carousel = document.querySelector(".carousel--hidden");
+      const images = document.querySelectorAll(".carousel--hidden__image");
+      const imgTag = document.querySelectorAll("img");
 
-    buttonBefore.addEventListener('click', () => { // click이란 이벤트가 발생됐을 때 {}을 구현, ()는 몰라
-      // 0 1 2 3 4
-      if (index > 0) {
-        index -= 1
-        carousel.style.transform = `translate3d(-${400 * index}px, 0,0)` 
-      } else if (index === 0) {
-        index = total - 2
-        carousel.style.transform = `translate3d(0, 0, 0)`
-      }
-    })
-    // 현재 상황(무한루프는 돌아간다)
-    // after 버튼, [4]에서 [0]으로 돌아간다. 
-    // before 버튼(미완성) [0]에서 버튼을 2번 눌렀을 때, [3]으로 감
-   
-    // 내일 목표
-    // before 버튼 완성하기(하나라도 원하는대로)
+      let index = 1; // 이미지의 위치를 지정하는 변수
+      let total = images.length; // 이미지 총 개수
+      let imgWidth = 400;
 
+      // imgWidth를 완벽히 구현을 하고
 
-    // if (index === document.querySelectorAll('.carousel--hidden > img').length - 1) {
-    //   index = 0
-    //   setTimeout(function () {
-    //       carousel.style.transition = `${0}s ease-out`
-    //       carousel.style.transform = `translate3d(-${400 * index}px,0,0)` // 위치 처음으로 이동
-    //       setTimeout(() => {
-    //         carousel.style.transition = `${0.4}s ease-out`
-    //       }, 400);   
-    //       //0.4초동안 복사한 첫번째 이미지에서, 진짜 첫번째 위치로 이동
-    //     }, 400);
-    //   }
-     
+      // 액자의 길이를 변수로 빼서 구현하고
+      // 추가 변수 : (액자 - imgwidth ) / 2
 
+      carousel.style.transform = `translate3d(-${imgWidth * index}px, 0,0)`; // 인덱스 값에 맞게 사진 위치를 이동
+      buttonAfter.addEventListener("click", () => {
+        // 클릭을 한 순간 >> after를 누르면 위치가 이동한다.
+        // 페이지가 4장 0, 1, 2, 3   => index가 0, 1, 2 일때 아래 if문이 실행 위치가 3까지는 도달
+        if (index < total - 1) {
+          index += 1;
+          carousel.style.transform = `translate3d(-${imgWidth * index}px, 0,0)`;
+        }
+        if (index === total - 1) {
+          index = 1;
+          carousel.style.transform = `translate3d(-${imgWidth * index}px, 0,0)`;
+        }
+        console.log(index);
+      });
 
-    // 1. 넘어가는 효과 
-    //  앞 이미지와 뒤 이미지가 한 화면에 같이 보이면서 넘어간다.
-    // 무한으로 돌아간다. 계속 진행
+      buttonBefore.addEventListener("click", () => {
+        // click이란 이벤트가 발생됐을 때 {}을 구현, ()는 몰라
+        // 0 1 2 3 4
+        if (index > 0) {
+          index -= 1;
+          carousel.style.transform = `translate3d(-${imgWidth * index}px, 0,0)`;
+        }
+        if (index === 0) {
+          index = total - 2;
+          carousel.style.transform = `translate3d(-${imgWidth * index}px, 0,0)`;
+        }
+        console.log(index);
+      });
+      // [3월 16일] 완성된 구현
+      // 현재 상황(무한루프는 돌아간다)
+      // after 버튼, [4]에서 [0]으로 돌아간다.
+      // before 버튼(미완성) [0]에서 버튼을 2번 눌렀을 때, [3]으로 감
 
-    // 2. 마지막 위치에 도달 했을 때 (조건)
-    // setTimeout이 실행 + 위치가 맨 앞 이미지로 이동 0초만에 이루어진다. 
-    
-    // 3. 계속 넘어간다. 
+      // 내일 목표
+      // before 버튼 완성하기(하나라도 원하는대로)
 
+      // [3월 17일] 완성된 구현
+      // 이미지 3개 노출 화면으로 무한루프 구현
 
-    
-    // 과제 ?
-
-    // 캐로셀 무한 반복 한번 생각해오기
-    // 이미지 크기 맞추는 방법
-    // 이미지의 갯수를 정수로 받는 방법?
-    // 해올 수 있는 만큼만
-
-    // 내일 목표
-
-    // 자연스럽게 넘기기
-    // + 무한 순환
-  </script>
-
-</body>
+      // 다음 목표
+      // imgWidth를 완벽히 구현을 하고
+      // 추가 변수 : (액자 - imgwidth ) / 2
+      // 액자의 길이를 변수로 빼서 구현
+      // 자연스러운 순환
+    </script>
+  </body>
 </html>
