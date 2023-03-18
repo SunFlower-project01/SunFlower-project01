@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0;
+    }
+
+    .navbar {
+        width: 100vw;
+        height: 50px;
+        background-color: #c6c6c6;
+        position: fixed;
+        z-index: 499;
+
+    }
+
+    .nav-left {
+        width: 100%;
+        height: 100%;
+    }
+
+    #check-btn {
+        display: none;
+    }
+
+    #check-btn:checked~.menubars {
+        /* display: block; */
+        transform: translateX(0);
+        /* 처음 있던 위치로 이동 */
+    }
+
+    .burger {
+        position: absolute;
+        margin: 15px;
+        z-index: 500;
+    }
+
+    .submenu {
+        height: 0;
+        /*ul의 높이를 안보이게 처리*/
+        overflow: hidden;
+        
+    }
+
+    .menubars {
+        /* display: none; display:none 기본으로 설정해놓으면 적용이 안됨*/
+        transform: translateX(-250px);
+        /* X축으로 -250px만큼 이동해서 화면 밖에 숨어있음 */
+        transition: transform 0.5s ease-in-out;
+        background-color: pink;
+        width: 200px;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+    }
+
+    .sidebar>li {
+        width: 100%;
+        text-align: center;
+        line-height: 60px;
+        background-color: #C6C6C6;
+    }
+
+    .sidebar {
+        display: flex;
+        flex-flow: column wrap;
+        position: sticky;
+        top: 0;
+        margin: 0;
+
+    }
+
+    .sidebar>li:hover {
+        background-color: #FFC5D5;
+        transition-duration: 0.5s;
+    }
+
+    .sidebar>li:hover .submenu {
+        height: 250px;
+        /*서브메뉴 li한개의 높이 50*5*/
+        transition-duration: 1s;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        height: 50px;
+        border: 1px solid black;
+    }
+
+    li:first-child {
+        /* padding-top: 50px; */
+        height: 50px;
+    }
+</style>
+
+<body>
+    <nav class="navbar">
+    </nav>
+    <div class="nav-left">
+        <input id="check-btn" type="checkbox" />
+        <label for="check-btn" class="burger"><span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                </svg></span></label>
+        <div class="menubars">
+            <ul class="sidebar">
+                <li>메뉴</li>
+                <li><a href="#">멤버소개</a>
+                    <ul class="submenu">
+                        <li><a href="#">초원</a></li>
+                        <li><a href="#">신혜</a></li>
+                        <li><a href="#">충현</a></li>
+                        <li><a href="#">상윤</a></li>
+                        <li><a href="#">윤원</a></li>
+                        <li><a href="#">주현</a></li>
+                    </ul>
+                </li>
+                <li> <a href="#">활동소개</a>
+                    <ul class="submenu">
+                        <li><a href="#">project01</a></li>
+                        <li><a href="#">project02</a></li>
+                        <li><a href="#">project03</a></li>
+                        <li><a href="#">project04</a></li>
+                        <li><a href="#">project05</a></li>
+                    </ul>
+                </li>
+                <li>놀이터
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="nav-right"></div>
+
+</body>
+
+</html>
