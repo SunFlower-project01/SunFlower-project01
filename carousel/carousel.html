@@ -9,6 +9,7 @@
       * {
         box-sizing: border-box;
       }
+
       .title {
         display: flex;
         justify-content: center;
@@ -25,14 +26,12 @@
         height: 300px;
         margin: 5%;
       }
+      
       .carousel--hidden {
         display: flex;
         transition: 0.4s ease;
       }
-      .carousel--hidden__image {
-        width: 400px;
-        height: 300px;
-      }
+      
     </style>
   </head>
   <!-- https://cdn.discordapp.com/attachments/1063314297486323712/1084481812841115648/bf22e255f87f3361.png
@@ -93,24 +92,31 @@
 
       let index = 1; // 이미지의 위치를 지정하는 변수
       let total = images.length; // 이미지 총 개수
-      let imgWidth = 400;
+      let imgWidth = 400; // 가로로 늘리는 것은 비율에 따른 한계가 있음, width : height = 4 : 3 에서 width비율은 늘리지 말 것
+      let imgHeight = 300;
+      
+      
+      images.forEach(element => {
+        element.style.width = `${imgWidth}px`;  
+        element.style.height = `${imgHeight}px`;  
+      });
 
-      // imgWidth를 완벽히 구현을 하고
+      console.log(document.getElementsByClassName("carousel--hidden__image")) // img 5개의 리스트
 
       // 액자의 길이를 변수로 빼서 구현하고
       // 추가 변수 : (액자 - imgwidth ) / 2
 
-      carousel.style.transform = `translate3d(-${imgWidth * index}px, 0,0)`; // 인덱스 값에 맞게 사진 위치를 이동
+      carousel.style.transform = `translate(-${imgWidth * index}px)`; // 왼쪽위 꼭지점위치 인덱스 값에 맞게 사진 위치를 이동
       buttonAfter.addEventListener("click", () => {
         // 클릭을 한 순간 >> after를 누르면 위치가 이동한다.
         // 페이지가 4장 0, 1, 2, 3   => index가 0, 1, 2 일때 아래 if문이 실행 위치가 3까지는 도달
         if (index < total - 1) {
           index += 1;
-          carousel.style.transform = `translate3d(-${imgWidth * index}px, 0,0)`;
+          carousel.style.transform = `translate(-${imgWidth * index}px)`;
         }
         if (index === total - 1) {
           index = 1;
-          carousel.style.transform = `translate3d(-${imgWidth * index}px, 0,0)`;
+          carousel.style.transform = `translate(-${imgWidth * index}px)`;
         }
         console.log(index);
       });
@@ -120,30 +126,15 @@
         // 0 1 2 3 4
         if (index > 0) {
           index -= 1;
-          carousel.style.transform = `translate3d(-${imgWidth * index}px, 0,0)`;
+          carousel.style.transform = `translate(-${imgWidth * index}px)`;
         }
         if (index === 0) {
           index = total - 2;
-          carousel.style.transform = `translate3d(-${imgWidth * index}px, 0,0)`;
+          carousel.style.transform = `translate(-${imgWidth * index}px)`;
         }
         console.log(index);
       });
-      // [3월 16일] 완성된 구현
-      // 현재 상황(무한루프는 돌아간다)
-      // after 버튼, [4]에서 [0]으로 돌아간다.
-      // before 버튼(미완성) [0]에서 버튼을 2번 눌렀을 때, [3]으로 감
 
-      // 내일 목표
-      // before 버튼 완성하기(하나라도 원하는대로)
-
-      // [3월 17일] 완성된 구현
-      // 이미지 3개 노출 화면으로 무한루프 구현
-
-      // 다음 목표
-      // imgWidth를 완벽히 구현을 하고
-      // 추가 변수 : (액자 - imgwidth ) / 2
-      // 액자의 길이를 변수로 빼서 구현
-      // 자연스러운 순환
     </script>
   </body>
 </html>
