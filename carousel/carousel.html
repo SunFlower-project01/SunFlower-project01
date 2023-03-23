@@ -14,6 +14,7 @@
         display: flex;
         justify-content: center;
       }
+
       .container__carousel {
         display: flex;
         justify-content: center;
@@ -94,7 +95,7 @@
       let total = images.length; // 이미지 총 개수
       let imgWidth = 400; // 가로로 늘리는 것은 비율에 따른 한계가 있음, width : height = 4 : 3 에서 width비율은 늘리지 말 것
       let imgHeight = 300;
-      
+
       
       images.forEach(element => {
         element.style.width = `${imgWidth}px`;  
@@ -102,10 +103,10 @@
       });
 
       console.log(document.getElementsByClassName("carousel--hidden__image")) // img 5개의 리스트
-
+      
       // 액자의 길이를 변수로 빼서 구현하고
       // 추가 변수 : (액자 - imgwidth ) / 2
-
+      
       carousel.style.transform = `translate(-${imgWidth * index}px)`; // 왼쪽위 꼭지점위치 인덱스 값에 맞게 사진 위치를 이동
       buttonAfter.addEventListener("click", () => {
         // 클릭을 한 순간 >> after를 누르면 위치가 이동한다.
@@ -114,13 +115,22 @@
           index += 1;
           carousel.style.transform = `translate(-${imgWidth * index}px)`;
         }
-        if (index === total - 1) {
-          index = 1;
-          carousel.style.transform = `translate(-${imgWidth * index}px)`;
+          
+        if (index === total - 1) { // 인덱스가 4가 되면 1로 보낸다. 3 -> 1 
+          setTimeout(() => {
+            index = 1;
+            carousel.style.transition = "transform 0s ease-out";
+            carousel.style.transform = `translate(-${imgWidth * index}px)`;       
+  
+          }, 400); // <-- 500이 0.5초 // 클릭을 하는 순간 2,3,4 0.4초
+        }
+        else { // index 2
+          carousel.style.transition = "transform 0.4s ease-out";
         }
         console.log(index);
       });
 
+      
       buttonBefore.addEventListener("click", () => {
         // click이란 이벤트가 발생됐을 때 {}을 구현, ()는 몰라
         // 0 1 2 3 4
@@ -129,12 +139,30 @@
           carousel.style.transform = `translate(-${imgWidth * index}px)`;
         }
         if (index === 0) {
-          index = total - 2;
-          carousel.style.transform = `translate(-${imgWidth * index}px)`;
+          setTimeout(() => {
+            index = total - 2;
+            carousel.style.transition = "transform 0s ease-out";
+            carousel.style.transform = `translate(-${imgWidth * index}px)`;
+          }, 400); // <-- 500이 0.5초 // 클릭을 하는 순간 2,3,4
+        }
+        else {
+          carousel.style.transition = "transform 0.4s ease-out";
         }
         console.log(index);
       });
-
     </script>
   </body>
 </html>
+
+<!-- transition : 0.2 ms : 움직이는 속도 이미지 효과? -->
+<!-- transform : 변화, translate -> px : hidden :원하는 위치 혹은 사이즈? -->
+<!-- 5개의 이미지  -->
+<!-- idx 0(4) [1 2 3] 4(1) -->
+<!-- 4(1) > 1 -->
+<!-- transition과 transform이 적용되는 위치를 찾아라! -->
+<!-- 4->1의 transition 값을 0으로 주냐? 아니면 transition 적용 값을 빼냐? -->
+<!-- setTimeout사이에서 transition과 transform이 적용되는 위치를 찾아서 transition값을 0으로 만드는 순간을 정확하게 적용시키자! -->
+
+<!--  -->
+<!--  -->
+<!--  -->
