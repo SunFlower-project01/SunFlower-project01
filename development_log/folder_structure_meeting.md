@@ -5,7 +5,7 @@
 ----
 
 # 1. 폴더 구조 분류
-# 레퍼지토리 이름: SunFlower-project01
+##  레퍼지토리 이름: SunFlower-project01
 
 ## 1) 케루젤팀 작업 폴더: carousel
  - 이 폴더에는 케루젤팀이 작업한 코드파일만 있음
