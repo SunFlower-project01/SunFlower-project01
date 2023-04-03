@@ -67,6 +67,6 @@
  - 이런식으로 하면 누가, 언제 어떤 작업을 했는지 알게 되어서 좋음
  
  - 브렌치, 협업 관련해서 참고할만한 사이트
- - [마일드스톤](https://velog.io/@gillog/GitHub-%ED%8C%80-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%98%91%EC%97%85%ED%95%98%EA%B8%B0Issues-Projects-Milestones-%ED%99%9C%EC%9A%A9)
- - [협업시 브랜치 전략](https://victorydntmd.tistory.com/91)
- - [브렌치 만들고 병합하는 방법](https://dev-yakuza.posstree.com/ko/git/branch-merge/)
+    - [마일드스톤](https://velog.io/@gillog/GitHub-%ED%8C%80-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%98%91%EC%97%85%ED%95%98%EA%B8%B0Issues-Projects-Milestones-%ED%99%9C%EC%9A%A9)
+    - [협업시 브랜치 전략](https://victorydntmd.tistory.com/91)
+    - [브렌치 만들고 병합하는 방법](https://dev-yakuza.posstree.com/ko/git/branch-merge/)
