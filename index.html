@@ -64,7 +64,7 @@
     <div class="container__carousel">
       <!-- left button -->
       <div>
-        <button class="button__before ">
+        <button class="button__left ">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
           </svg>
@@ -75,7 +75,7 @@
         <div class="carousel--hidden">
           <!-- .carousel--hidden을 div로 한 번 더 감싸서 이미지 한 장만 나오게 가려줄 겁니다. -->
           <!-- 이미지 크기를 400 300--><!-- carousel 내부에서 가로로 정렬된 image -->
-          <!-- 인덱스가 0인 사진 -->
+          <!-- 맨 앞에 마지막 사진을, 맨 뒤에 첫 번째 사진을 추가해서 무한 순회 캐로젤을 구현했다. -->
           <img class="carousel--hidden__image" src="장미반치타.jpg" alt="장미반치타" />
           <img class="carousel--hidden__image" src="떡잎마을방범대.jpg" alt="파워레인저복장 떡잎마을방범대" />
           <img class="carousel--hidden__image" src="채성아선생님.jpg" alt="채성아선생님" />
@@ -85,7 +85,7 @@
       </div>
       <!-- right button -->
       <div>
-        <button class="button__after">
+        <button class="button__right">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
           </svg>

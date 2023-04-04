@@ -1,5 +1,5 @@
-const buttonBefore = document.querySelector(".button__before");
-const buttonAfter = document.querySelector(".button__after");
+const buttonLeft = document.querySelector(".button__left");
+const buttonRight = document.querySelector(".button__right");
 const carousel = document.querySelector(".carousel--hidden");
 const images = document.querySelectorAll(".carousel--hidden__image");
 const imgTag = document.querySelectorAll("img");
@@ -21,7 +21,7 @@ console.log(document.getElementsByClassName("carousel--hidden__image")) // img 5
 // 추가 변수 : (액자 - imgwidth ) / 2
 
 carousel.style.transform = `translate(-${imgWidth * index}px)`; // 왼쪽위 꼭지점위치 인덱스 값에 맞게 사진 위치를 이동
-buttonAfter.addEventListener("click", () => {
+buttonRight.addEventListener("click", () => {
   // 클릭을 한 순간 >> after를 누르면 위치가 이동한다.
   // 페이지가 4장 0, 1, 2, 3   => index가 0, 1, 2 일때 아래 if문이 실행 위치가 3까지는 도달
   if (index < total - 1) {
@@ -44,7 +44,7 @@ buttonAfter.addEventListener("click", () => {
 });
 
 
-buttonBefore.addEventListener("click", () => {
+buttonLeft.addEventListener("click", () => {
   // click이란 이벤트가 발생됐을 때 {}을 구현, ()는 몰라
   // 0 1 2 3 4
   if (index > 0) {
