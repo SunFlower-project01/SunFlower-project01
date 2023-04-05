@@ -6,104 +6,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    
   </head>
-  <!-- https://cdn.discordapp.com/attachments/1063314297486323712/1084481812841115648/bf22e255f87f3361.png
-  https://cdn.discordapp.com/attachments/1063314297486323712/1084447459922690128/image.png -->
-
   <body>
-<!-- 사이드바 코드 -->
+
     <header>
-        <nav></nav>
-        <input id="check-btn" type="checkbox"/>
-        <label for="check-btn" class="burger">
-            <span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-                </svg>
-            </span>
-        </label>
-        <div class="sidebar">
-            <input type="radio" name="accordian" id="submenu01">
-            <label for = "submenu01">멤버 소개 <em></em></label>
-            <div>				
-                <p>초원</p>
-                <p>신혜</p>
-                <p>충현</p>
-                <p>상윤</p>
-                <p>윤원</p>
-                <p>주현</p>
-                <p>지수</p>
-            </div>
-            <input type="radio" name="accordian" id="submenu02">
-            <label for = "submenu02">활동 소개 <em></em></label>
-            <div>				
-                <p>Project 01</p>
-                <p>Project 02</p>
-                <p>Project 03</p>
-                <p>Project 04</p>
-                <p>Project 05</p>
-                <p>Project 06</p>
-                <p>Project 07</p>
-            </div>
-            <input type="radio" name="accordian" id="submenu03">
-            <label for = "submenu03">놀이터 <em></em></label>
-            <div>				
-                <p>1</p>
-                <p>2</p>
-                <p>3</p>
-                <p>4</p>
-                <p>5</p>
-                <p>6</p>
-                <p>7</p>               
-            </div>
-        </div>
+      <!-- fixed로 고정된 상단의 navigation bar -->
+      <nav></nav>
+      <!-- absolute의 중복에 의한 오류 방지로 햄버거 버튼을 밖으로 꺼내서 사용 -->
+      <!-- 햄버거 버튼 -->
+      <input id="check-btn" type="checkbox" />
+      <!-- 햄버거 아이콘 -->
+      <label for="check-btn" class="burger">
+        <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+            </svg>
+        </span>
+      </label>
+      <!-- 사이드바 코드 -->
+      <div class="sidebar">
+          <input type="radio" name="accordian" id="submenu01" />
+          <label for = "submenu01">멤버 소개 <em>></em></label>
+          <div>				
+              <p>초원</p>
+              <p>신혜</p>
+              <p>충현</p>
+              <p>상윤</p>
+              <p>윤원</p>
+              <p>주현</p>
+              <p>지수</p>
+          </div>
+          <input type="radio" name="accordian" id="submenu02">
+          <label for = "submenu02">활동 소개 <em>></em></label>
+          <div>				
+              <p>Project 01</p>
+              <p>Project 02</p>
+              <p>Project 03</p>
+              <p>Project 04</p>
+              <p>Project 05</p>
+              <p>Project 06</p>
+              <p>Project 07</p>
+          </div>
+          <input type="radio" name="accordian" id="submenu03">
+          <label for = "submenu03">놀이터 <em>></em></label>
+          <div>				
+              <p>1</p>
+              <p>2</p>
+              <p>3</p>
+              <p>4</p>
+              <p>5</p>
+              <p>6</p>
+              <p>7</p>               
+          </div>
+      </div>
     </header>
 
-
-<!-- 캐로젤 코드 -->
-
-    <!-- btn + carousel + btn -->
+    <!-- left button + carousel + right button -->
     <div class="container__carousel">
-      <!-- button1 -->
+      <!-- left button -->
       <div>
-        <button class="button__before ">
+        <button class="button__left ">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
           </svg>
         </button>
       </div>
-
       <!-- carousel -->
       <div class="carousel">
         <div class="carousel--hidden">
           <!-- .carousel--hidden을 div로 한 번 더 감싸서 이미지 한 장만 나오게 가려줄 겁니다. -->
           <!-- 이미지 크기를 400 300--><!-- carousel 내부에서 가로로 정렬된 image -->
-          <img
-          class="carousel--hidden__image"
-          src="장미반치타"
-          alt="장미반치타" />
-          <img
-          class="carousel--hidden__image"
-          src="모임"
-          alt="파워레인저복장 짱구반 아이들" />
-          <img
-          class="carousel--hidden__image"
-          src="선생님"
-          alt="해바라기반 선생님" />
-          <img
-          class="carousel--hidden__image"
-          src="장미반치타"
-          alt="장미반치타" />
-          <img
-          class="carousel--hidden__image"
-          src="모임"
-          alt="파워레인저복장 짱구반 아이들" />
+          <!-- 맨 앞에 마지막 사진을, 맨 뒤에 첫 번째 사진을 추가해서 무한 순회 캐로젤을 구현했다. -->
+          <img class="carousel--hidden__image" src="장미반치타.jpg" alt="장미반치타" />
+          <img class="carousel--hidden__image" src="떡잎마을방범대.jpg" alt="파워레인저복장 떡잎마을방범대" />
+          <img class="carousel--hidden__image" src="채성아선생님.jpg" alt="채성아선생님" />
+          <img class="carousel--hidden__image" src="장미반치타.jpg" alt="장미반치타" />
+          <img class="carousel--hidden__image" src="떡잎마을방범대.jpg" alt="파워레인저복장 떡잎마을방범대" />
         </div>
       </div>
-
-      <!-- button2 -->
+      <!-- right button -->
       <div>
-        <button class="button__after">
+        <button class="button__right">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
           </svg>
@@ -111,22 +93,7 @@
       </div>
     </div>
 
-
-
     <script src="index_js.js"></script>
 
   </body>
 </html>
-
-<!-- transition : 0.2 ms : 움직이는 속도 이미지 효과? -->
-<!-- transform : 변화, translate -> px : hidden :원하는 위치 혹은 사이즈? -->
-<!-- 5개의 이미지  -->
-<!-- idx 0(4) [1 2 3] 4(1) -->
-<!-- 4(1) > 1 -->
-<!-- transition과 transform이 적용되는 위치를 찾아라! -->
-<!-- 4->1의 transition 값을 0으로 주냐? 아니면 transition 적용 값을 빼냐? -->
-<!-- setTimeout사이에서 transition과 transform이 적용되는 위치를 찾아서 transition값을 0으로 만드는 순간을 정확하게 적용시키자! -->
-
-<!--  -->
-<!--  -->
-<!--  -->
